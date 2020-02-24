@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Clipper",
+  "version": "0.4",
+  "description": "Upload Twitch clips straight to Streamable",
+  "content_scripts": [
+        {
+            "matches": ["https://clips.twitch.tv/*"],
+            "js": ["clippage.js"]
+        },
+        {
+            "matches": ["https://clips.twitch.tv/create"],
+            "js": ["createclip.js"]
+        }
+    ],
+  "permissions": [
+    "<all_urls>",
+    "http://*/*",
+    "https://*/*",
+    "webRequestBlocking",
+    "webRequest",
+    "cookies",
+    "proxy",
+    "alarms"
+  ],
+  "background": {
+      "scripts": [
+          "background.js"
+      ],
+      "persistent": true
+  }
+}
